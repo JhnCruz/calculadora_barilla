@@ -1,0 +1,106 @@
+{
+  "id": "./",
+  "name": "Varilla · Estimación de acero",
+  "short_name": "Varilla",
+  "description": "Estima áreas de acero en columnas y compara cantidades por grosor, incluso sin conexión.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f3ec",
+  "theme_color": "#233c32",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "widgets": [
+    {
+      "name": "Varilla · Último cálculo",
+      "short_name": "Varilla",
+      "description": "Consulta la última estimación de acero guardada y abre la calculadora.",
+      "tag": "varilla-column",
+      "template": "varilla-column",
+      "ms_ac_template": "widgets/column.json",
+      "multiple": false,
+      "screenshots": [
+        {
+          "src": "widgets/preview.png",
+          "sizes": "300x304",
+          "type": "image/png",
+          "platform": "Windows",
+          "label": "Vista previa del último cálculo de Varilla"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    "utilities",
+    "education"
+  ],
+  "shortcuts": [
+    {
+      "name": "Nuevo cálculo",
+      "url": "./#quote-form",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Ver historial",
+      "url": "./#saved-calculations",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 420
+  },
+  "share_target": {
+    "action": "./share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "calculation",
+          "accept": [
+            "text/plain",
+            ".txt"
+          ]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+varilla",
+      "url": "./?url=%s"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

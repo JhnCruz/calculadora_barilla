@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es-MX">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#233c32"><meta name="description" content="Estima el área de acero de una columna y compara cantidades de varilla."><title>Varilla · Calcula tu material</title><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icons/icon-192.png"><link rel="stylesheet" href="styles.css"><script src="quantity.js" defer></script><script src="app.js" defer></script></head>
+<body>
+<header class="topbar"><a class="brand" href="./"><span class="mark">///</span> varilla<span class="brand-dot">.</span></a><div class="header-actions"><span id="connection" class="status">En línea</span><button id="install" class="quiet">Instalar app ↗</button></div></header>
+<div class="titlebar"><div class="titlebar-inner"><nav aria-label="Navegación principal"><a href="#quote-form" aria-current="page">Calculadora</a><a href="#saved-calculations">Historial</a><button type="button" id="new-calculation">Nuevo cálculo</button></nav><form role="search" id="search-form"><label class="sr-only" for="search">Buscar en el historial</label><input id="search" type="search" placeholder="Buscar en historial…" autocomplete="off"><button type="submit" aria-label="Buscar">⌕</button></form></div><p id="search-status" class="search-status" role="status"></p></div>
+<main>
+<section class="intro"><div><p class="eyebrow">MENOS CUENTAS. MÁS OBRA.</p><h1>Tu material,<br>bien calculado<span>.</span></h1><p class="subtitle">Define la sección de tu columna.<br class="desktop"> Compara el acero, sin complicarte.</p></div><div class="illustration" aria-hidden="true"><div class="rod r1"></div><div class="rod r2"></div><div class="rod r3"></div><span>ACERO / CONSTRUCCIÓN</span></div></section>
+<div class="workspace">
+<section class="panel calculator"><div class="section-heading"><span class="step">01</span><h2>Datos de la columna</h2><span class="small">SECCIÓN / CM</span></div>
+<form id="quote-form">
+<div class="field-row"><div><label for="width">Ancho de sección (cm)</label><input id="width" type="number" min="1" max="200" step="0.1" value="30" required></div><div><label for="height">Largo de sección (cm)</label><input id="height" type="number" min="1" max="200" step="0.1" value="30" required></div></div>
+<p class="help">Son los lados de la sección transversal, no la altura de la columna.</p>
+<div class="ratio-label"><label for="percentage">Cuantía de acero</label><output id="percentage-value" for="percentage">1.0%</output></div>
+<input id="percentage" type="range" min="0.5" max="4" step="0.1" value="1" aria-describedby="ratio-help"><div class="range-labels"><span>0.5%</span><span>4.0%</span></div>
+<p class="help" id="ratio-help">Porcentaje de la sección ocupado por acero. El 1% inicial es ilustrativo; usa la cuantía definida en tu proyecto.</p>
+<div class="section-preview" aria-hidden="true"><div class="column-section"><i></i><i></i><i></i><i></i></div><div><strong>Una sección. Varias opciones.</strong><p>Área de acero = ancho × largo × cuantía / 100</p><small>Esquema ilustrativo, no un plano de armado.</small></div></div>
+<button class="primary" type="submit">Calcular acero <span>↗</span></button><p id="message" class="message" role="status"></p>
+</form>
+
+</section>
+<section class="result panel" aria-labelledby="result-title"><div class="section-heading"><span class="step">02</span><h2 id="result-title">Tu estimación</h2><span class="tag">COLUMNA</span></div>
+<p class="total-label">Área de acero calculada</p><div class="steel-total"><span class="total" id="total">9.00</span><span>cm²</span></div><p class="currency">Según la cuantía ingresada</p>
+<div class="result-metrics"><div><span>Sección de concreto</span><strong id="section-area"></strong></div><div><span>Cuantía de acero</span><strong id="result-percentage"></strong></div></div>
+<div class="comparison-heading"><h3>Cantidades por grosor</h3><span>Área aportada</span></div><div id="rebar-options"></div>
+<p class="result-note">Cantidades redondeadas hacia arriba para alcanzar el área calculada. No verifican distribución, separación ni validez estructural.</p>
+<div class="result-actions"><button id="save" class="light" type="button">Guardar cálculo</button></div><div class="share-actions"><button id="share" type="button">↗ Compartir cálculo</button><button id="download" type="button">Descargar .txt</button></div><p id="share-status" class="share-status" role="status"></p><div class="offline-note"><span>◉</span> También funciona sin conexión.</div></section>
+</div>
+<section class="history" id="saved-calculations"><div class="history-heading"><h2>Cálculos guardados <span id="history-count">0</span></h2><button class="quiet" id="clear-history" type="button">Borrar historial</button></div><div id="history-list"></div></section>
+<aside class="educational-note"><span>!</span><div><strong>Una estimación para comparar</strong><p>Este cálculo usa una cuantía elegida; no determina el acero requerido por cargas. No incluye estribos, longitudes, anclajes ni traslapes. El diseño de una columna debe revisarse con el proyecto estructural y el reglamento aplicable.</p></div></aside><footer><span>Hecho para tener las cuentas claras.</span><a href="privacidad.html">Privacidad</a></footer>
+</main><dialog id="install-help"><h2>Lleva Varilla a tu escritorio</h2><p>En Chrome abre el menú ⋮ → Transmitir, guardar y compartir → Instalar página como aplicación. También puedes usar el icono de instalación en la barra de direcciones cuando aparezca.</p><p>Abre la app desde localhost o HTTPS. Después de la primera visita, podrás calcular sin conexión.</p><button class="primary" id="close-help">Entendido</button></dialog>
+</body></html>

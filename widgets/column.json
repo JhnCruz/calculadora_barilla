@@ -1,0 +1,14 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {"type":"TextBlock","text":"VARILLA · COLUMNA","weight":"Bolder","color":"Accent"},
+    {"type":"TextBlock","text":"${headline}","size":"ExtraLarge","weight":"Bolder","wrap":true},
+    {"type":"TextBlock","text":"${details}","wrap":true,"spacing":"Small"},
+    {"type":"TextBlock","text":"Estimación educativa","size":"Small","isSubtle":true}
+  ],
+  "actions": [
+    {"type":"Action.Execute","title":"Abrir Varilla","verb":"open-varilla"}
+  ]
+}

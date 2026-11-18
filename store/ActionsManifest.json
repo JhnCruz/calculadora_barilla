@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "actions": [
+    {
+      "id": "Varilla.CalcularColumna",
+      "description": "Estimar el área de acero de una columna a partir de medidas en texto",
+      "isAvailable": false,
+      "allowedAppInvokers": ["*"],
+      "inputs": [{"name": "Medidas", "kind": "Text"}],
+      "outputs": [],
+      "invocation": {
+        "type": "Uri",
+        "uri": "web+varilla://calcular",
+        "inputData": {"medidas": "${Medidas.Text}"}
+      },
+      "inputCombinations": [{
+        "inputs": ["Medidas"],
+        "description": "Calcular acero a partir de ancho, largo y cuantía; por ejemplo, 30 × 40 cm al 1%"
+      }]
+    }
+  ]
+}
